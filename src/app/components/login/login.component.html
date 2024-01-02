@@ -1,0 +1,26 @@
+<mat-card style="padding: 1rem; width:80%">
+  <h1>Login</h1>
+  <mat-divider style="height:2px;margin-bottom:1rem">s</mat-divider>
+ 
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input
+        matInput
+        [(ngModel)]="username"
+        placeholder="Username"
+        name="username"
+        type="text"
+      />
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input
+        [(ngModel)]="password"
+        matInput
+        placeholder="Password"
+        name="password"
+        type="text"
+      />
+    </mat-form-field>
+    <button color="primary" style="width:100%" (click)="signIn()" mat-raised-button>Sign in</button>
+  </form>
+</mat-card>

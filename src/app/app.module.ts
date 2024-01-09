@@ -17,8 +17,14 @@ import { MatCardModule } from '@angular/material/card';
 import { HomeComponent } from './components/home/home.component';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
-import {MatDividerModule} from '@angular/material/divider'
-
+import { MatDividerModule } from '@angular/material/divider';
+import { RegisterComponent } from './components/register/register.component';
+import { LogoutComponent } from './components/logout/logout.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { MonthlyTransactionComponent } from './components/monthly-transaction/monthly-transaction.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { CategoryCardComponent } from './components/category-card/category-card.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +32,12 @@ import {MatDividerModule} from '@angular/material/divider'
     FooterComponent,
     LoginComponent,
     HomeComponent,
+    RegisterComponent,
+    LogoutComponent,
+    DashboardComponent,
+    MonthlyTransactionComponent,
+    UserProfileComponent,
+    CategoryCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +49,8 @@ import {MatDividerModule} from '@angular/material/divider'
     MatCardModule,
     MatInputModule,
     FormsModule,
-    MatDividerModule
+    MatDividerModule,
+    MatSidenavModule,
   ],
   providers: [provideClientHydration()],
   bootstrap: [AppComponent],

@@ -1,8 +1,34 @@
 <div>
   <app-header></app-header>
-  <div style="display:flex; justify-content:center;margin-top:1rem">
-    <router-outlet></router-outlet></div>
-
+  <mat-sidenav-container class="example-container">
+    <mat-sidenav mode="side" opened>
+      <div class="mat-sidenav-item">
+        <a style="text-decoration: none; color: inherit" href="/userProfile"
+          >Profile</a
+        >
+      </div>
+      <div class="mat-sidenav-item">
+        <a style="text-decoration: none; color: inherit" href="/dashboard"
+          >Dashboard</a
+        >
+      </div>
+      <div class="mat-sidenav-item">
+        <a
+          style="text-decoration: none; color: inherit"
+          href="/monthlyTransaction"
+          >Monthly Transaction</a
+        >
+      </div>
+    </mat-sidenav>
+    <div
+      style="
+        display: flex;
+        justify-content: center;
+        margin-top: 3rem;
+        width: 100%;
+      "
+    >
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-container>
 </div>
-
- 

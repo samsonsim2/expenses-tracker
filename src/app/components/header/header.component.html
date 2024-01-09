@@ -1,8 +1,25 @@
 <mat-toolbar color="primary" class="nav-bar">
-  <div><a font-size=2rem sm:font-size=0rem style=" text-decoration: none; color: inherit" href="/">Expense-tracker</a></div>
+  <div>
+    <a
+      font-size="2rem"
+      sm:font-size="0rem"
+      style="text-decoration: none; color: inherit"
+      href="/"
+      >Expense-tracker</a
+    >
+  </div>
 
-  <div style="display: flex; gap: 10px;">
-    <button mat-raised-button><a style="text-decoration: none; color: inherit" href="/login">Login</a></button>
-    <button mat-raised-button>SignUp</button>
+  <div style="display: flex; gap: 10px">
+    <button mat-raised-button>
+      <a style="text-decoration: none; color: inherit" href="/login">Login</a>
+    </button>
+    <button mat-raised-button>
+      <a style="text-decoration: none; color: inherit" href="/register"
+        >Register</a
+      >
+    </button>
+    <button mat-raised-button>
+      <a style="text-decoration: none; color: inherit" href="/logout">Logout</a>
+    </button>
   </div>
 </mat-toolbar>

@@ -1,1 +1,17 @@
- 
+.example-container {
+  width: 100%;
+  height: 100vh;
+}
+
+mat-sidenav {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.mat-sidenav-item {
+  margin: auto;
+  border: solid #73ad21;
+  border-width: 0 0 1px 0;
+  padding: 10px;
+}

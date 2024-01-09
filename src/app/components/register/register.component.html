@@ -9,7 +9,7 @@
         [(ngModel)]="user.email"
         placeholder="email"
         name="email"
-        type="email"
+        type="text"
       />
     </mat-form-field>
     <mat-form-field class="example-full-width">
@@ -24,10 +24,36 @@
     <button
       color="primary"
       style="width: 100%"
-      (click)="signIn()"
+      (click)="signUp()"
       mat-raised-button
     >
-      Sign in
+      Register
+    </button>
+  </form>
+</mat-card>
+
+<mat-card *ngIf="isConfirm" style="padding: 1rem; margin-top: 1rem; width: 80%">
+  <h1>Confirm Code</h1>
+  <mat-divider style="height: 2px; margin-bottom: 1rem">s</mat-divider>
+
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input
+        matInput
+        [(ngModel)]="user.code"
+        placeholder="Enter Code"
+        name="email"
+        type="text"
+      />
+    </mat-form-field>
+
+    <button
+      color="primary"
+      style="width: 100%"
+      (click)="confirmSignUp()"
+      mat-raised-button
+    >
+      Confirm
     </button>
   </form>
 </mat-card>

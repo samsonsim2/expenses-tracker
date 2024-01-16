@@ -8,6 +8,8 @@ export interface IUser {
   password: string;
   code: string;
   name: string;
+  firstname: string;
+  lastname: string;
 }
 
 @Injectable({
@@ -28,6 +30,10 @@ export class CognitoService {
     return Auth.signUp({
       username: user.email,
       password: user.password,
+      attributes: {
+        given_name: user.firstname,
+        family_name: user.lastname,
+      },
     });
   }
 

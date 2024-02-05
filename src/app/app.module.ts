@@ -25,6 +25,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MonthlyTransactionComponent } from './components/monthly-transaction/monthly-transaction.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { CategoryCardComponent } from './components/category-card/category-card.component';
+import { HttpClientModule } from '@angular/common/http'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,6 +53,7 @@ import { CategoryCardComponent } from './components/category-card/category-card.
     FormsModule,
     MatDividerModule,
     MatSidenavModule,
+    HttpClientModule
   ],
   providers: [provideClientHydration()],
   bootstrap: [AppComponent],

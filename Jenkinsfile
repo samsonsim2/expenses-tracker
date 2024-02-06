@@ -10,10 +10,8 @@ pipeline {
                  sh "npm build"
             }
         }
-    }
-  
-    stages {
-        stage('Build image') {
+
+      stage('Build image') {
             steps {
                 echo "building the docker image..."
                 withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
@@ -24,5 +22,9 @@ pipeline {
 
             }
         }
+   
     }
+  
+     
+        
 }

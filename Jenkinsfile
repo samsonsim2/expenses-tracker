@@ -5,9 +5,23 @@ pipeline {
     }
 
     stages {
-        stage('Build') {
+        stage('Build artifact') {
             steps {
-                 sh "npm version"
+                 sh "npm build"
+            }
+        }
+    }
+  
+    stages {
+        stage('Build image') {
+            steps {
+                echo "building the docker image..."
+                withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
+                    sh 'docker build -t samsonsim2/expenses-frontend:test-1.0 .'
+                    sh "echo $PASS | docker login -u $USER --password-stdin"
+                    sh 'docker push samsonsim2/expenses-frontend:test-1.0'
+                }
+
             }
         }
     }

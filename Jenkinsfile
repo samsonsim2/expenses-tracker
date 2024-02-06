@@ -1,10 +1,13 @@
 pipeline {
     agent any
+    tools{
+      nodejs '21.6.1
+    }
 
     stages {
         stage('Build') {
             steps {
-                 echo "Testing the application..."
+                 sh "npm version"
             }
         }
     }

@@ -7,6 +7,13 @@ pipeline {
      
     stages {
 
+         stage('Build artifact') {
+            steps {
+                 sh "npm install"
+                 sh "npm run build"
+            }
+        }
+
 
       stage('Build image') {
             steps {

@@ -4,6 +4,10 @@ pipeline {
       nodejs '21.6.1'
     }
 
+    environment { 
+        CI = 'false'
+    }
+
     stages {
         stage('Build artifact') {
             steps {

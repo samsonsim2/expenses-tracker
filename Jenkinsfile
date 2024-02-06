@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Build artifact') {
             steps {
-                 sh "npm build"
+                 sh "npm run build"
             }
         }
 

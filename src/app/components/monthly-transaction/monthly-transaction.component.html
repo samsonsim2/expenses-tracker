@@ -1,1 +1,7 @@
-<p>monthly-transaction works!</p>
+<div style="display:flex;justify-content: center;">
+<div>
+    <app-transaction-card *ngFor="let transaction of transactions" [transaction]="transaction"/>
+</div>
+
+ <!-- <app-transaction-form /> -->
+ </div>

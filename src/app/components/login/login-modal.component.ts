@@ -3,9 +3,9 @@ import { CognitoService, IUser } from '../../services/cognito.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.css',
+  selector: 'app-login-modal',
+  templateUrl: './login-modal.component.html',
+  styleUrl: './login-modal.component.css',
 })
 export class LoginComponent {
   user: IUser;

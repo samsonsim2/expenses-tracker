@@ -1,0 +1,80 @@
+<mat-card
+  style="
+    background-color: red;
+    box-sizing: border-box;
+    max-width: 500px;
+    padding: 1rem;
+  "
+>
+  <h5 style="text-align: center">Add Transaction</h5>
+  <form
+    #myForm="ngForm"
+    class="example-form"
+    (ngSubmit)="createTransaction(myForm)"
+  >
+    <h3>Transaction Name</h3>
+    <mat-form-field class="example-full-width">
+      <input
+        [(ngModel)]="transaction.name"
+        matInput
+        name="name"
+        type="string"
+      />
+    </mat-form-field>
+
+    <h3>Category</h3>
+    <mat-form-field class="example-full-width">
+      <input
+        matInput
+        [(ngModel)]="transaction.categoryId"
+        name="category"
+        type="string"
+      />
+    </mat-form-field>
+
+    <h3>Amount</h3>
+    <mat-form-field class="example-full-width">
+      <input
+        matInput
+        [(ngModel)]="transaction.amount"
+        name="amount"
+        type="number"
+      />
+    </mat-form-field>
+    <h3>Date</h3>
+    <mat-form-field>
+      <mat-label>Choose a date</mat-label>
+      <input
+        matInput
+        name="date"
+        [matDatepicker]="picker"
+        [(ngModel)]="transaction.date"
+      />
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <div style="width: 100%; display: flex; flex-direction: row; justify-content: flex-end;gap: 1rem">
+      <button
+        color="primary"
+        
+        mat-raised-button
+         
+      >
+        Clear
+      </button>
+      <button
+        color="primary"
+        
+        mat-raised-button
+        type="submit"
+      >
+        Add
+      </button>
+    </div>
+  </form>
+</mat-card>

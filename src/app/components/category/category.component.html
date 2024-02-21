@@ -1,0 +1,94 @@
+<section style="margin-top: 5rem">
+  <h1>Category settings</h1>
+
+  <mat-tab-group animationDuration="0ms">
+    <mat-tab label="Add Category">
+      <form
+        #myForm="ngForm"
+        class="example-form"
+        (ngSubmit)="createCategory(myForm)"
+      >
+        <h3>Category Name</h3>
+        <mat-form-field class="example-full-width">
+          <input
+            matInput
+            name="category"
+            [(ngModel)]="category.name"
+            type="string"
+          />
+        </mat-form-field>
+
+        <h3>Color</h3>
+        <ngx-colors
+          name="color"
+          ngx-colors-trigger
+          [(ngModel)]="category.color"
+        ></ngx-colors>
+        <mat-form-field>
+          <input name="color" matInput [(ngModel)]="category.color" />
+        </mat-form-field>
+
+        <h3>Income or Expense</h3>
+        <mat-form-field>
+          <select
+            matNativeControl
+            name="incomeExpenseId"
+            [(ngModel)]="category.incomeExpenseId"
+          >
+            <option value="2">Income</option>
+            <option value="1">Expense</option>
+          </select>
+        </mat-form-field>
+        <div
+          style="
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            justify-content: flex-end;
+          "
+        >
+          <div
+            style="width: 40%; display: flex; flex-direction: row; gap: 1rem"
+          >
+            <button
+              color="primary"
+              style="width: 100%"
+              mat-raised-button
+              (click)="clearCategory()"
+            >
+              Clear
+            </button>
+            <button
+              color="primary"
+              style="width: 100%"
+              mat-raised-button
+              type="submit"
+            >
+              Add
+            </button>
+          </div>
+        </div>
+      </form>
+    </mat-tab>
+
+    <mat-tab label="Edit Category">
+      <div
+        style="
+          display: flex;
+          flex-wrap: wrap;
+          flex-direction: row;
+          justify-content: center;
+          margin-top: 3rem;
+          gap: 0.5rem;
+          width: 100%;
+        "
+      >
+        <app-category-card
+          *ngFor="let category of categories"
+          [category]="category"
+          (onDeleteCategory)="deleteCategory(category)"
+        ></app-category-card>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</section>

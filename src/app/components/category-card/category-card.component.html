@@ -1,1 +1,18 @@
-<p>category-card works!</p>
+<mat-card class="example-card">
+  <div
+    style="width:100%;background-color: {{
+      category.color
+    }};border-top-left-radius: 5px;border-top-right-radius: 5px;"
+  >
+    &nbsp;
+  </div>
+
+  <mat-card-header>
+    <mat-card-title>{{ category.name }}</mat-card-title>
+    <mat-card-subtitle>{{
+      category.incomeExpenseId == 1 ? "Expense" : "Income"
+    }}</mat-card-subtitle>
+  </mat-card-header>
+
+  <button (click)="onDelete()">Delete</button>
+</mat-card>

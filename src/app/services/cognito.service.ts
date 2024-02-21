@@ -58,6 +58,8 @@ export class CognitoService {
     return Auth.currentUserInfo();
   }
 
+
+
   public isAuthenticated(): Promise<boolean> {
     if (this.authenticationSubject.value) {
       return Promise.resolve(true);

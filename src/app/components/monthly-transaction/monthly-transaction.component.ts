@@ -1,4 +1,4 @@
-import { Component, Injectable } from '@angular/core';
+import { Component, Injectable,Input } from '@angular/core';
 import { TransactionService,IGET_Transaction } from '../../services/transaction.service';
 interface transactionData {
   name: string;
@@ -12,17 +12,18 @@ interface transactionData {
 
 
 export class MonthlyTransactionComponent {
-  public transactions: IGET_Transaction[];
+  @Input() public transactions: IGET_Transaction[];
+ 
+
   public transactionPieChart: any[];
 
-  
 
   
-  constructor(private transactionService:TransactionService){
-    this.transactions=[] as IGET_Transaction[];
+  // constructor(private transactionService:TransactionService){
+  //   this.transactions=[] as IGET_Transaction[];
 
     
-  }
+  // }
   public sumValues(arr: transactionData[]): { [key: string]: number } {
     const sums: { [key: string]: number } = {};
 
@@ -39,20 +40,21 @@ export class MonthlyTransactionComponent {
 }
 
   public ngOnInit(): void {
-    this.transactionService.getTransactions().subscribe((res) => {
-      console.log(res)
-        res.map((t:any)=>{
-       console.log(t.categoryName)
+    console.log(this.transactions)
+    // this.transactionService.getTransactions().subscribe((res) => {
+    //   console.log(res)
+    //     res.map((t:any)=>{
+    //    console.log(t.categoryName)
 
-      })
+    //   })
     
-      this.transactions= res;
-      this.transactionPieChart = res.map((t:any):transactionData=>{
+    //   this.transactions= res;
+    //   this.transactionPieChart = res.map((t:any):transactionData=>{
     
-        return { name:t.categoryName, amount:t.amount}
-      })
-      console.log(this.sumValues(this.transactionPieChart))
-    });
+    //     return { name:t.categoryName, amount:t.amount}
+    //   })
+    //   console.log(this.sumValues(this.transactionPieChart))
+    // });
   }
 
  

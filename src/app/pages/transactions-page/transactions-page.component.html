@@ -31,14 +31,14 @@
       "
     >
       <ngx-charts-pie-chart
-        [results]="productSales"
+        [results]="transactionPieChart"
          [doughnut]="true"
       >
       </ngx-charts-pie-chart>
       <!-- <app-bar-charts /> -->
     </div>
     <div style="width: 50%; height: fit-content">
-      <app-monthly-transaction />
+      <app-monthly-transaction [transactions]="transactions" />
     </div>
   </div>
 

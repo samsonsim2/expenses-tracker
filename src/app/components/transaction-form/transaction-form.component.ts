@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output  } from '@angular/core';
 import { IGET_Transaction, TransactionService } from '../../services/transaction.service';
 import { NgForm } from '@angular/forms';
  
@@ -9,6 +9,10 @@ import { NgForm } from '@angular/forms';
 })
 export class TransactionFormComponent {
 public transaction: IGET_Transaction;
+@Output() onCloseForm = new EventEmitter();
+closeForm() {
+  this.onCloseForm.emit();
+}
 
 constructor(private transactionService: TransactionService){
   function formatISODate(date: Date): string {
@@ -18,6 +22,8 @@ constructor(private transactionService: TransactionService){
     return `${year}-${month}-${day}`;
 }
 
+
+
  
 
  
@@ -29,13 +35,14 @@ constructor(private transactionService: TransactionService){
     userId:1,
     categoryColor:'',
     categoryName:'',
+    categoryIncomeExpenseId:'1'
   }  
 }
 
 
 
 public createTransaction(form: NgForm) {
-   console.log(this.transaction)
+   
   this.transactionService.createTransaction(this.transaction).subscribe((res) => {});
   this.transaction = {
     name: 'test',
@@ -45,6 +52,7 @@ public createTransaction(form: NgForm) {
     userId:1,
     categoryColor:'',
     categoryName:'',
+    categoryIncomeExpenseId:'1'
   }  
 
   

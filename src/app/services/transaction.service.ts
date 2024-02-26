@@ -23,6 +23,7 @@ export interface IGET_Transaction {
   categoryId: number;
   categoryName: string;
   categoryColor:string;
+  categoryIncomeExpenseId: string
 
 }
 

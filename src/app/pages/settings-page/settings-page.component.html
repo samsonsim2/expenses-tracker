@@ -1,0 +1,30 @@
+<div
+  style="
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    display: flex;
+    justify-content: center;
+  "
+  [ngStyle]="{
+    background: 'url(/assets/background.svg) no-repeat 0 0  ',
+    'background-size': 'cover'
+  }"
+>
+  <div
+    style="
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 4rem;
+
+      width: 50%;
+      height: fit-content;
+      padding-bottom: 4rem;
+    "
+  >
+    <app-user-profile />
+    <app-category />
+    
+  </div>
+</div>

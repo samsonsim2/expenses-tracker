@@ -8,4 +8,19 @@ import { IGET_Transaction } from '../../services/transaction.service';
 })
 export class TransactionCardComponent {
   @Input() transaction: IGET_Transaction;
+  
+  isExpense:boolean = true;
+
+  public ngOnInit(): void {
+    console.log(this.transaction.categoryIncomeExpenseId)
+    if(this.transaction.categoryIncomeExpenseId == '2'){
+      this.isExpense = false
+    }else{
+      this.isExpense = true
+    }
+  } 
+ 
+ 
+
+  
 }

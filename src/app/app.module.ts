@@ -12,7 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { LoginComponent } from './components/login/login-modal.component';
+
 import { MatCardModule } from '@angular/material/card';
 import { HomeComponent } from './components/home/home.component';
 import { MatInputModule } from '@angular/material/input';
@@ -24,29 +24,34 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MonthlyTransactionComponent } from './components/monthly-transaction/monthly-transaction.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
-import {MatSelectModule} from '@angular/material/select';
-import { HttpClientModule } from '@angular/common/http'
-import {MatTabsModule} from '@angular/material/tabs';
+import { MatSelectModule } from '@angular/material/select';
+import { HttpClientModule } from '@angular/common/http';
+import { MatTabsModule } from '@angular/material/tabs';
 import { CategoryComponent } from './components/category/category.component';
 import { CategoryCardComponent } from './components/category-card/category-card.component';
-import { NgxColorsModule } from 'ngx-colors'; 
-import { TransactionFormComponent } from './components/transactions-form/transaction-form.component';
-import { TransactionCardComponent } from './components/transaction-card/transaction-card.component';
-import {MatChipsModule} from '@angular/material/chips';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { NgxColorsModule } from 'ngx-colors';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
- 
- 
+import { SettingsPageComponent } from './pages/settings-page/settings-page.component';
+import { LoginModalComponent } from './components/login-modal/login-modal.component';
+import { TransactionFormComponent } from './components/transaction-form/transaction-form.component';
+import { TransactionCardComponent } from './components/transaction-card/transaction-card.component';
+import { TransactionsPageComponent } from './pages/transactions-page/transactions-page.component';
+
+// import { BarChartsComponent } from './components/bar-charts/bar-charts.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    LoginComponent,
+
     HomeComponent,
     RegisterComponent,
     LogoutComponent,
@@ -54,17 +59,18 @@ import { LandingPageComponent } from './pages/landing-page/landing-page.componen
     MonthlyTransactionComponent,
     UserProfileComponent,
     CategoryComponent,
-    CategoryCardComponent,   
+    CategoryCardComponent,
     TransactionFormComponent,
     TransactionCardComponent,
     LoginPageComponent,
     DashboardPageComponent,
     LandingPageComponent,
-    
-   
+    SettingsPageComponent,
+    LoginModalComponent,
+     TransactionsPageComponent
   ],
   imports: [
-    BrowserModule,   
+    BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatTabsModule,
@@ -77,12 +83,13 @@ import { LandingPageComponent } from './pages/landing-page/landing-page.componen
     MatDatepickerModule,
     MatFormFieldModule,
     MatNativeDateModule,
-    FormsModule,    
+    FormsModule,
     MatDividerModule,
     MatSidenavModule,
     MatSelectModule,
     HttpClientModule,
-    NgxColorsModule
+    NgxColorsModule,
+    NgxChartsModule,
   ],
   providers: [provideClientHydration()],
   bootstrap: [AppComponent],

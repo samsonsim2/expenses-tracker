@@ -1,35 +1,32 @@
-<div>
-  <router-outlet></router-outlet>
-  <!-- <app-login-page></app-login-page> -->
-  <!-- <app-header></app-header>
-  <mat-sidenav-container class="example-container">
-    <mat-sidenav mode="side" opened>
-      <div class="mat-sidenav-item">
-        <a style="text-decoration: none; color: inherit" href="/userProfile"
-          >Profile</a
-        >
+<div
+  style="
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  "
+>
+  <app-header *ngIf="canShowHeader" />
+  <section style="background-color: red; height: 100%; position: relative">
+    <mat-drawer-container style="height: 100%">
+      <mat-drawer #drawer mode="side">
+        <a style="display: block" href="/dashboard">dashboard</a>
+        <a style="display: block" href="/settings">settings</a>
+        <a style="display: block" href="/transactions">Transactions</a>
+      </mat-drawer>
+
+      <div style="height: 100%">
+
+        <button   type="button"   (click)="drawer.toggle()" mat-fab color="primary" aria-label="Example icon button with a delete icon " style="position: absolute; top: 0">
+          <mat-icon>chevron_right</mat-icon>
+        </button>
+
+        
+        <router-outlet />
       </div>
-      <div class="mat-sidenav-item">
-        <a style="text-decoration: none; color: inherit" href="/dashboard"
-          >Dashboard</a
-        >
-      </div>
-      <div class="mat-sidenav-item">
-        <a
-          style="text-decoration: none; color: inherit"
-          href="/monthlyTransaction"
-          >Monthly Transaction</a
-        >
-      </div>
-    </mat-sidenav>
-    <div
-      style="
-        margin-top: 3rem;
-        width: 100%;
-        height: 100%;
-      "
-    >
-      <router-outlet></router-outlet>
-    </div>
-  </mat-sidenav-container> -->
+    </mat-drawer-container>
+  </section>
 </div>

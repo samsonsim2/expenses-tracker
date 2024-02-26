@@ -1,9 +1,13 @@
 .example-form {
   width: 50%;
+ 
 }
 
 .example-full-width {
   width: 100%;
+ 
+ 
+ 
 }
 .example-header-image {
   background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg");
@@ -17,8 +21,8 @@
 }
 
 .image-container {
-  height: 200px;
-  width: 200px;
+  height: 100px;
+  width: 100px;
   z-index: 1;
   border-radius: 50%;
   background-color: #fff;
@@ -28,8 +32,8 @@
 }
 .icon-wrapper {
   position: absolute;
-  height: 40px;
-  width: 40px;
+  height: 20px;
+  width: 20px;
   padding: 0.35rem;
   background-color: #2962ff;
   border-radius: 50%;

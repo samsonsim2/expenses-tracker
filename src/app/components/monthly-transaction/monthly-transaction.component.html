@@ -1,7 +1,11 @@
-<div style="display:flex;justify-content: center;">
-<div>
-    <app-transaction-card *ngFor="let transaction of transactions" [transaction]="transaction"/>
-</div>
-
- <!-- <app-transaction-form /> -->
- </div>
+<div style="display: flex; flex-direction: column; gap: 0.3rem">
+    <div style="display:flex; justify-content: space-between;">
+      <h3 style="padding: 0; margin: 0">Transactions</h3>
+      <input/>
+    </div>
+    <app-transaction-card
+      *ngFor="let transaction of transactions"
+      [transaction]="transaction"
+    />
+  </div>
+  

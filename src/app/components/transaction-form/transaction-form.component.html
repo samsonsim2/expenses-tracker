@@ -1,0 +1,92 @@
+<mat-card
+  style="
+    background-color: #f5f5f5;
+    box-sizing: border-box;
+
+    padding-left: 1rem;
+    padding-top: 1rem;
+
+    padding-right: 1rem;
+  "
+>
+  <a   style="align-self: flex-end; margin-bottom: 1rem ;  margin-bottom: 0;cursor: pointer;">
+    <button (click)="closeForm()" style="background-color: transparent; border: 0;cursor: pointer;">
+      <mat-icon
+      aria-hidden="false"
+      aria-label="Example home icon"
+      fontIcon="close"
+      style="text-decoration: none; color: black"
+    ></mat-icon>
+    </button>
+    
+  </a>
+  <!-- <h5 style="text-align: center;margin-top: 0;">Add Transaction</h5> -->
+  <form
+    #myForm="ngForm"
+    class="example-form"
+    (ngSubmit)="createTransaction(myForm)"
+    style="display: flex; flex-direction: column; gap: 0"
+  >
+    <p style="margin-bottom: 0; margin-top: 0">Transaction Name</p>
+    <mat-form-field class="example-full-width" style="padding: 0">
+      <input
+        [(ngModel)]="transaction.name"
+        matInput
+        name="name"
+        type="string"
+        style="margin-bottom: 0"
+      />
+    </mat-form-field>
+
+    <p style="margin-bottom: 0; margin-top: 0">Category</p>
+    <mat-form-field class="example-full-width">
+      <input
+        matInput
+        [(ngModel)]="transaction.categoryId"
+        name="category"
+        type="string"
+      />
+    </mat-form-field>
+
+    <p style="margin-bottom: 0; margin-top: 0">Amount</p>
+    <mat-form-field class="example-full-width">
+      <input
+        matInput
+        [(ngModel)]="transaction.amount"
+        name="amount"
+        type="number"
+      />
+    </mat-form-field>
+    <p style="margin-bottom: 0; margin-top: 0">Date</p>
+    <mat-form-field>
+      <mat-label>Choose a date</mat-label>
+      <input
+        matInput
+        name="date"
+        [matDatepicker]="picker"
+        [(ngModel)]="transaction.date"
+      />
+      
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <div
+      style="
+        width: 100%;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        gap: 1rem;
+      "
+    >
+      <button color="primary" mat-raised-button>Clear</button>
+      <button color="primary" mat-raised-button type="submit">Add</button>
+    </div>
+  </form>
+</mat-card>

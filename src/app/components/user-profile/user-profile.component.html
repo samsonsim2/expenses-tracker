@@ -1,42 +1,46 @@
-<section style="display: flex; justify-content: center">
-  <div style="width: 60%">
-    <h1>Edit Profile</h1>
+<h1>Edit profile</h1>
+<div style="display: flex; flex-direction: row">
 
-    <div style="display: flex; flex-direction: row">
-      <form
-        class="example-form"
-        href="https://www.pexels.com/photo/woman-jumping-wearing-green-backpack-214574/"
-      >
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="email" name="email" type="email" />
-        </mat-form-field>
-        <mat-form-field class="example-full-width">
-          <input
-            matInput
-            placeholder="first name"
-            name="password"
-            type="text"
-          />
-        </mat-form-field>
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="last name" name="password" type="text" />
-        </mat-form-field>
-        <button color="primary" style="width: 100%" mat-raised-button>
-          Update
-        </button>
-      </form>
-      <div style="width: 50%">
-        <div style="display: flex; flex-direction: column; align-items: center">
-          <div class="avatar-container">
-            <div class="image-container"></div>
-            <div class="icon-wrapper">
-              <mat-icon class="icon" fontIcon="edit"></mat-icon>
-            </div>
-          </div>
-          <input type="file" id="avatar-input-file" accept="image/*" />
+  <form
+    class="example-form"
+    href="https://www.pexels.com/photo/woman-jumping-wearing-green-backpack-214574/"
+    style=" flex-grow: 1"
+  >
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="email" name="email" type="email"  />
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="first name" name="password" type="text" />
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="last name" name="password" type="text" />
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="currency" name="currency" type="text" />
+    </mat-form-field>
+    <button color="primary" style="width: 100%" mat-raised-button>
+      Update
+    </button>
+  </form>
+  <div style="width: 30%;  display: flex;justify-content: center;align-items: center;">
+    <div
+      style="
+        display: flex;
+        flex-direction: column;
+       
+        align-items: center;
+        justify-items: center;
+      "
+    >
+      <div class="avatar-container">
+        <div class="image-container"></div>
+        <div class="icon-wrapper">
+          <mat-icon class="icon" fontIcon="edit"></mat-icon>
         </div>
       </div>
+      <!-- <input type="file" id="avatar-input-file" accept="image/*" /> -->
     </div>
-    <app-category/>
   </div>
-</section>
+</div>
+
+<!-- <app-category/> -->

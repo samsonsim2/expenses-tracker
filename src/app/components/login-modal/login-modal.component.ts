@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   templateUrl: './login-modal.component.html',
   styleUrl: './login-modal.component.css',
 })
-export class LoginComponent {
+export class LoginModalComponent {
   user: IUser;
 
   constructor(private router: Router, private cognitoService: CognitoService) {
@@ -18,7 +18,7 @@ export class LoginComponent {
     this.cognitoService
       .signIn(this.user)
       .then(() => {
-        this.router.navigate(['/home']);
+        this.router.navigate(['/dashboard']);
       })
       .catch(() => {
         console.log('something bad happened on sign in ');

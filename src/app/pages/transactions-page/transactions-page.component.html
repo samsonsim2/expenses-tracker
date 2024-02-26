@@ -1,0 +1,81 @@
+<div
+  style="
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  "
+  [ngStyle]="{
+    background: 'url(/assets/background.svg) no-repeat 0 0  ',
+    'background-size': 'cover'
+  }"
+>
+  <div
+    style="
+      display: flex;
+      flex-direction: row;
+      width: 80%;
+      gap: 1rem;
+      margin-top: 6rem;
+      position: relative;
+    "
+  >
+    <div
+      style="
+        width: 50%;
+        background-color: rgb(0, 255, 191);
+        border-radius: 0.3rem;
+      "
+    >
+      <ngx-charts-pie-chart
+        [results]="productSales"
+         [doughnut]="true"
+      >
+      </ngx-charts-pie-chart>
+      <!-- <app-bar-charts /> -->
+    </div>
+    <div style="width: 50%; height: fit-content">
+      <app-monthly-transaction />
+    </div>
+  </div>
+
+  <div
+    style="
+      display: flex;
+      justify-content: flex-end;
+      width: 90%;
+      margin-top: 2rem;
+      margin-bottom: 4rem;
+    "
+  >
+    <button
+      mat-fab
+      color="primary"
+      aria-label="Example icon button with a delete icon"
+      (click)="toggleForm()"
+    >
+      <mat-icon>add</mat-icon>
+    </button>
+
+    <div
+      *ngIf="openForm"
+      style="
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        backdrop-filter: blur(10px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+      "
+    >
+      <app-transaction-form (onCloseForm)="toggleForm()" />
+    </div>
+  </div>
+</div>

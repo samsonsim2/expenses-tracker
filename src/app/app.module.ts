@@ -45,6 +45,7 @@ import { TransactionsPageComponent } from './pages/transactions-page/transaction
 
 // import { BarChartsComponent } from './components/bar-charts/bar-charts.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { MonthSelectionComponent } from './components/month-selection/month-selection.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     LandingPageComponent,
     SettingsPageComponent,
     LoginModalComponent,
-     TransactionsPageComponent
+     TransactionsPageComponent,
+     MonthSelectionComponent
   ],
   imports: [
     BrowserModule,

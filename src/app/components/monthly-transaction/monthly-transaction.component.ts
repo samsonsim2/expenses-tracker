@@ -41,20 +41,7 @@ export class MonthlyTransactionComponent {
 
   public ngOnInit(): void {
     console.log(this.transactions)
-    // this.transactionService.getTransactions().subscribe((res) => {
-    //   console.log(res)
-    //     res.map((t:any)=>{
-    //    console.log(t.categoryName)
-
-    //   })
-    
-    //   this.transactions= res;
-    //   this.transactionPieChart = res.map((t:any):transactionData=>{
-    
-    //     return { name:t.categoryName, amount:t.amount}
-    //   })
-    //   console.log(this.sumValues(this.transactionPieChart))
-    // });
+     
   }
 
  

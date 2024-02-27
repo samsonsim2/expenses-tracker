@@ -16,5 +16,6 @@ export class UserProfileComponent {
 
   constructor(private router: Router, private cognitoService: CognitoService) {
     this.user = {} as IUser;
+     
   }
 }

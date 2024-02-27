@@ -37,8 +37,8 @@ export class TransactionService {
     return this._http.post('https://localhost:5000/api/Transaction', transaction);
   }
 
-  getTransactions(): Observable<any> {
-    const categories = this._http.get('https://localhost:5000/api/Transaction');
+  getTransactions(currentUserId:number,month:number,year:number): Observable<any> {
+    const categories = this._http.get(`https://localhost:5000/api/Transaction/userId?id=${currentUserId}&month=${month}&year=${year}`);
     return categories;
   }
 

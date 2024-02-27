@@ -1,3 +1,4 @@
+
 <div
   style="
     width: 100%;
@@ -12,7 +13,7 @@
     background: 'url(/assets/background.svg) no-repeat 0 0  ',
     'background-size': 'cover'
   }"
->
+><app-month-selection (onNextDate)="handleNextMonth($event)" [date]="date"/>
   <div
     style="
       display: flex;
@@ -75,7 +76,7 @@
         height: 100%;
       "
     >
-      <app-transaction-form (onCloseForm)="toggleForm()" />
+      <app-transaction-form (onCloseForm)="toggleForm()" [currentUserId]="currentUserId"/>
     </div>
   </div>
 </div>

@@ -1,0 +1,17 @@
+
+<div style="display:flex;justify-content: space-between;">
+ 
+  <button
+    style="background-color: transparent; border: 0; cursor: pointer"
+    (click)="clickNext(date, false)"
+  >
+    <mat-icon>keyboard_arrow_left</mat-icon>
+  </button>
+  <h1>{{ month[date.getMonth()] }}&nbsp; {{ date.getFullYear() }}</h1>
+  <button
+  style="background-color: transparent; border: 0; cursor: pointer"
+  (click)="clickNext(date, true)"
+>
+  <mat-icon>keyboard_arrow_right</mat-icon>
+</button>
+</div>

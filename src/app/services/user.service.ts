@@ -32,6 +32,11 @@ export class UserService {
     return (users);
   }
 
+  getUserByUsername(username:string):Observable<any>{
+    const users =this._http.get(`https://localhost:5000/api/User/username?username=${username}`)
+    return (users);
+  }
+
   findOrCreateUser(userDTO: IUserDTO):Observable<any>{
     return  this._http.post("http://167.71.199.57:5000/api/User",userDTO )
   }

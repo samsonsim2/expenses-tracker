@@ -17,7 +17,8 @@ export class LoginModalComponent {
   public signIn(): void {
     this.cognitoService
       .signIn(this.user)
-      .then(() => {
+      .then((res) => {
+         console.log(this.user)
         this.router.navigate(['/dashboard']);
       })
       .catch(() => {

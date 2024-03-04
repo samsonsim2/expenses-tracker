@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { IGET_Transaction } from '../../services/transaction.service';
+import { formatDate } from '../../utils/utils';
  
 @Component({
   selector: 'app-transaction-card',
@@ -18,6 +19,10 @@ export class TransactionCardComponent {
     }else{
       this.isExpense = true
     }
+
+    this.transaction.date=formatDate(this.transaction.date)
+
+    console.log(formatDate(this.transaction.date))
   } 
  
  

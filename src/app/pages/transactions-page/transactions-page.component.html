@@ -31,15 +31,12 @@
         border-radius: 0.3rem;
       "
     >
-      <ngx-charts-pie-chart
-        [results]="transactionPieChart"
-         [doughnut]="true"
-      >
-      </ngx-charts-pie-chart>
-      <!-- <app-bar-charts /> -->
+    <app-charts [expensesPieChart]="expensesPieChart"  [incomePieChart]="incomePieChart"/>
+     
     </div>
     <div style="width: 50%; height: fit-content">
       <app-monthly-transaction [transactions]="transactions" />
+      <app-pagination [currentPage]="currentPage" [totalPages]="totalPages" style="width:100%; "/>
     </div>
   </div>
 
@@ -74,9 +71,10 @@
         align-items: center;
         width: 100%;
         height: 100%;
+        z-index: 100;
       "
     >
-      <app-transaction-form (onCloseForm)="toggleForm()" [currentUserId]="currentUserId"/>
+      <app-transaction-form  (onCloseForm)="toggleForm()" [currentUserId]="currentUserId"/>
     </div>
   </div>
 </div>

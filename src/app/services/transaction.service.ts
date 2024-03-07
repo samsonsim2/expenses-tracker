@@ -3,16 +3,7 @@ import { BehaviorSubject } from 'rxjs';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-export interface IPOST_Transaction {
-  
-  name: string;
-  amount: number;
-  date: string;
-  categoryId: number;
-  userId:number;
  
-
-}
 
 export interface IGET_Transaction {
   

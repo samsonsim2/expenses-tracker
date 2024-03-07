@@ -1,47 +1,36 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatTabsModule } from '@angular/material/tabs';
 import { CognitoService, IUser } from '../../services/cognito.service';
 import { Router } from '@angular/router';
 import { CategoryService, ICategory } from '../../services/category.service';
 import { NgForm } from '@angular/forms';
+import { IGET_Transaction } from '../../services/transaction.service';
+
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
   styleUrl: './category.component.css',
 })
 export class CategoryComponent {
-  public categories: ICategory[];
+  @Input() currentUserId: number;
 
-  color: string = '#EC407A';
+  @Input() categories: ICategory[];
 
-  category: ICategory;
-  
+  category: ICategory = {
+    name: '',
+    color: '#EC407A',
+    incomeExpenseId: 1,
+  } as ICategory;
 
-  constructor(private categoryService: CategoryService) {
-    this.categories = [] as ICategory[];
-    this.category = {
-      name: '',
-      color: '#EC407A',
-      incomeExpenseId: 1,
-    } as ICategory;
-  }
-
-  public ngOnInit(): void {
-    this.categoryService.getCategories().subscribe((res) => {
-      console.log(res);
-      this.categories = res;
-    });
-  }
+  constructor(private categoryService: CategoryService) {}
 
   public createCategory(form: NgForm) {
-    this.categoryService.createCategory(this.category).subscribe((res) => {});
+    this.categoryService
+      .createCategory(this.category, this.currentUserId)
+      .subscribe((res) => {});
     this.categories.push(this.category);
-
-    this.category = {
-      name: '',
-      color: '#EC407A',
-      incomeExpenseId: 0,
-    } as ICategory;
+    //reset
+    this.clearCategory();
   }
 
   public clearCategory() {

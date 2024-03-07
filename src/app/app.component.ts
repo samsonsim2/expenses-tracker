@@ -7,7 +7,8 @@ import { Router } from '@angular/router';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
- 
+  
+   
 
   showFiller = false;
   canShowHeader = false ;

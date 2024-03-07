@@ -8,6 +8,8 @@ export interface ICategory {
   name: string;
   color: string;
   incomeExpenseId: number;
+  defaultCategory: boolean;
+  
 }
 
 @Injectable({
@@ -16,12 +18,16 @@ export interface ICategory {
 export class CategoryService {
   constructor(private _http: HttpClient) {}
 
-  createCategory(category: ICategory): Observable<any> {
-    return this._http.post('http://167.71.199.57:5000/api/Category', category);
+  createCategory(category: ICategory,userId: number): Observable<any> {
+    return this._http.post(`https://localhost:5000/api/Category?userId=${userId}`, category);
   }
 
   getCategories(): Observable<any> {
-    const categories = this._http.get('http://167.71.199.57:5000/api/Category');
+    const categories = this._http.get('https://localhost:5000/api/Category');
+    return categories;
+  }
+  getCategoriesByUserId(userId:number): Observable<any> {
+    const categories = this._http.get(`https://localhost:5000/api/Category/userId/${userId}`);
     return categories;
   }
 

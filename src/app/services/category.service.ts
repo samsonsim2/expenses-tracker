@@ -26,6 +26,11 @@ export class CategoryService {
     const categories = this._http.get('https://localhost:5000/api/Category');
     return categories;
   }
+
+  getCategoryById(categoryId:number): Observable<any> {
+    const category = this._http.get(`https://localhost:5000/api/Category/${categoryId}`);
+    return category;
+  }
   getCategoriesByUserId(userId:number): Observable<any> {
     const categories = this._http.get(`https://localhost:5000/api/Category/userId/${userId}`);
     return categories;

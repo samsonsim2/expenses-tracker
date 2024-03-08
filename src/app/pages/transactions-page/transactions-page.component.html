@@ -31,7 +31,7 @@
         border-radius: 0.3rem;
       "
     >
-    <app-charts [expensesPieChart]="expensesPieChart"  [incomePieChart]="incomePieChart"/>
+    <app-charts   [expensesPieChart]="expensesPieChart"  [incomePieChart]="incomePieChart"/>
      
     </div>
     <div style="width: 50%; height: fit-content">
@@ -74,7 +74,7 @@
         z-index: 100;
       "
     >
-      <app-transaction-form  (onCloseForm)="toggleForm()" [currentUserId]="currentUserId"/>
+      <app-transaction-form  (onCloseForm)="createCharts(transactions)" (onCloseForm)="toggleForm()" [currentUserId]="currentUserId" [transactions]="transactions"/>
     </div>
   </div>
 </div>

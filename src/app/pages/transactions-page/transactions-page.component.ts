@@ -101,7 +101,7 @@ export class TransactionsPageComponent {
     private userService: UserService
   ) {
     this.transactions = [] as IGET_Transaction[];
-    Object.assign(this, { productSales });
+ 
   }
 
   public async ngOnInit() {
@@ -139,17 +139,24 @@ export class TransactionsPageComponent {
         )
         .subscribe((res) => {         
 
-          //Create Expenses Pie Chart
-          const expensesPieChartData = this.formatData(res, 1);
-          this.expensesPieChart = expensesPieChartData;
-         //Create Income Pie Chart
-          const incomePieChartData = this.formatData(res, 2);
-          this.incomePieChart = incomePieChartData;
+          this.transactions = res
+          this.createCharts(this.transactions)
         });
 
       //-------------------END: Fetch Monthly Transactions For PieChart (Unpaginated data) ----------------------//
     });
   }
+
+  public createCharts(transactions :  IGET_Transaction[]){
+    
+     //Create Expenses Pie Chart
+     this.expensesPieChart=this.formatData(transactions, 1);
+    //Create Income Pie Chart
+    this.incomePieChart=this.formatData(transactions, 2);
+  }
+
+ 
+
 
   public formatData(transactions: transactionData[], incomeExpenseId: number) {
     //formats list of transactions into the appropriate format for pie chart.
@@ -213,4 +220,6 @@ export class TransactionsPageComponent {
       )
       .subscribe((res) => (this.totalPages = res));
   }
+
+
 }

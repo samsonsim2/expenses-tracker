@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { LegendPosition } from '@swimlane/ngx-charts';
  
 @Component({
   selector: 'app-charts',
@@ -6,11 +7,23 @@ import { Component, Input } from '@angular/core';
   styleUrl: './charts.component.css'
 })
 export class ChartsComponent {
-@Input() expensesPieChart : any;
+@Input() expensesPieChart : any=[];
 @Input() incomePieChart : any;
+ 
+ 
+ 
+  single: any[];
+  view: any[] = [700, 400];
+
+  // options
+  gradient: boolean = true;
+  showLegend: boolean = true;
+  showLabels: boolean = true;
+  isDoughnut: boolean = false;
+  legendPosition = LegendPosition.Below
+
 
 ngOnInit(){
-  console.log(`excomepie:${this.expensesPieChart}`)
-  console.log("hihi")
+ console.log(this.expensesPieChart.length())
 }
 }

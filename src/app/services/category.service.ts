@@ -38,7 +38,7 @@ export class CategoryService {
 
   deleteCategory(categoryId: number): Observable<any> {
     return this._http.delete(
-      `http://167.71.199.57:5000/api/Category/${categoryId}`
+      `https://localhost:5000/api/Category/${categoryId}`
     );
   }
 }

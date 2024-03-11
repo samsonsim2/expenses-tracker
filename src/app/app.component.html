@@ -12,19 +12,32 @@
   <app-header *ngIf="canShowHeader" />
   <section style="background-color: red; height: 100%; position: relative">
     <mat-drawer-container style="height: 100%">
-      <mat-drawer #drawer mode="side">
-        <a style="display: block" href="/dashboard">dashboard</a>
-        <a style="display: block" href="/settings">settings</a>
-        <a style="display: block" href="/transactions">Transactions</a>
+      <mat-drawer style="padding:20px;background-color:#182138" #drawer mode="side">
+      
+        <a style="display: block; text-decoration: none;padding-bottom: 15px;color:#f5f5f5" href="/dashboard">
+          <mat-icon> home</mat-icon></a>
+
+        <a style="display: block; text-decoration: none;padding-bottom: 15px;color:#f5f5f5" href="/settings">
+          <mat-icon> settings</mat-icon></a>
+
+        <a style="display: block; text-decoration: none;padding-bottom: 15px;color:#f5f5f5" href="/transactions">
+          <mat-icon> pie_chart</mat-icon></a>
+       
+ 
       </mat-drawer>
 
-      <div style="height: 100%">
-
-        <button   type="button"   (click)="drawer.toggle()" mat-fab color="primary" aria-label="Example icon button with a delete icon " style="position: absolute; top: 0">
-          <mat-icon>chevron_right</mat-icon>
+      <div style="height: 100vh">
+        <button   
+        type="button"
+        (click)="drawer.toggle()" 
+        mat-icon-button aria-label="Example icon button with a vertical three dot icon"
+        style="position: absolute; top: 0">
+          <mat-icon *ngIf="!drawer.opened">keyboard_arrow_right</mat-icon>
+          <mat-icon *ngIf="drawer.opened">keyboard_arrow_left</mat-icon>
         </button>
-
+ 
         
+
         <router-outlet />
       </div>
     </mat-drawer-container>

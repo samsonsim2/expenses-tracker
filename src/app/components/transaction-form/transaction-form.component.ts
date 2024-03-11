@@ -15,7 +15,7 @@ export class TransactionFormComponent {
   @Input() transactions: IGET_Transaction[];
   public transaction: IGET_Transaction;
   @Output() onCloseForm = new EventEmitter();
-
+  @Output() onAddTransaction = new EventEmitter();
 
   ngOnInit() {
     console.log(this.currentUserId);
@@ -34,6 +34,7 @@ export class TransactionFormComponent {
   closeForm() {
     this.onCloseForm.emit();
   }
+ 
 
   constructor(
     private transactionService: TransactionService,
@@ -49,14 +50,20 @@ export class TransactionFormComponent {
 
   public createTransaction(form: NgForm) {
     this.addTransactionToList(this.transaction.categoryId);
-    
+    this.onAddTransaction.emit()
+    console.log("createTransaction")
   }
 
   public addTransactionToList(categoryId: number) {
+
+
     this.categoryService.getCategoryById(categoryId).subscribe((res) => {
       this.transaction.categoryColor = res.color;
       this.transaction.categoryName = res.name;
+      if(this.transactions.length < 10){
+    
       this.transactions.push(this.transaction);
+      }
 
       this.transactionService
         .createTransaction(this.transaction)
@@ -73,7 +80,7 @@ export class TransactionFormComponent {
         categoryIncomeExpenseId: '1',
       };
 
-      this.closeForm()
+     
     });
   }
 }

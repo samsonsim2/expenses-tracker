@@ -20,7 +20,7 @@ export class AppComponent {
     });
   }
 
-
+ 
   showHeader(url: string) {     
     if(url != '/'){
       console.log('hide header')

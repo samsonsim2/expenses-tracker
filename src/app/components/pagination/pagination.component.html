@@ -1,9 +1,9 @@
-<div  style="width:100%; display:flex;justify-content: space-between;"> 
-  <button style="background-color: transparent; border: 0; cursor: pointer">
+<div  style="width:100%; display:flex;justify-content: space-between; "> 
+  <button style="background-color: transparent; border: 0; cursor: pointer"  (click)="clickNext(currentPage, false)">
     <mat-icon>keyboard_arrow_left</mat-icon>
   </button>
 <p>{{currentPage}}/{{totalPages}}</p>
-  <button style="background-color: transparent; border: 0; cursor: pointer">
+  <button style="background-color: transparent; border: 0; cursor: pointer" (click)="clickNext(currentPage, true)">
     <mat-icon>keyboard_arrow_right</mat-icon>
   </button>
 </div>

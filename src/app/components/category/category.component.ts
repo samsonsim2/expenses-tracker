@@ -5,6 +5,10 @@ import { Router } from '@angular/router';
 import { CategoryService, ICategory } from '../../services/category.service';
 import { NgForm } from '@angular/forms';
 import { IGET_Transaction } from '../../services/transaction.service';
+interface Food {
+  value: string;
+  viewValue: string;
+}
 
 @Component({
   selector: 'app-category',
@@ -16,11 +20,19 @@ export class CategoryComponent {
 
   @Input() categories: ICategory[];
 
+  incomeExpense = [
+    {value: '1', viewValue: 'Expense'},
+    {value: '2', viewValue: 'Income'},
+     
+  ];
+
   category: ICategory = {
     name: '',
     color: '#EC407A',
     incomeExpenseId: 1,
   } as ICategory;
+
+  selected = 'option2';
 
   constructor(private categoryService: CategoryService) {}
 

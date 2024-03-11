@@ -1,50 +1,61 @@
-
 <div
-  style="
-    width: 100%;
-    height: 100%;
-    overflow-y: scroll;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  "
+  style="width: 100%; height: 100%; overflow-y: scroll"
   [ngStyle]="{
     background: 'url(/assets/background.svg) no-repeat 0 0  ',
     'background-size': 'cover'
   }"
-><app-month-selection (onNextDate)="handleNextMonth($event)" [date]="date"/>
+>
   <div
     style="
-      display: flex;
-      flex-direction: row;
       width: 80%;
-      gap: 1rem;
-      margin-top: 6rem;
-      position: relative;
+      margin: auto;
+      padding-top: 20px;
+     
     "
   >
+    <div>
+      <app-month-selection
+        (onNextDate)="handleNextMonth($event)"
+        [date]="date"
+      />
+    </div>
+
     <div
       style="
-        width: 50%;
-        background-color: rgb(0, 255, 191);
-        border-radius: 0.3rem;
+        display: flex;
+        flex-direction: row;
+
+        gap: 1rem;
+        position: relative;
+     
       "
     >
-    <app-charts   [expensesPieChart]="expensesPieChart"  [incomePieChart]="incomePieChart"/>
-     
-    </div>
-    <div style="width: 50%; height: fit-content">
-      <app-monthly-transaction [transactions]="transactions" />
-      <app-pagination [currentPage]="currentPage" [totalPages]="totalPages" style="width:100%; "/>
+      <div style="flex-grow: 1; box-sizing: border-box;background-color: white;border-radius: 10px;box-shadow:30px;">
+        <app-charts
+          [expensesPieChart]="expensesPieChart"
+          [incomePieChart]="incomePieChart"
+        />
+      </div>
+
+      <div style="width: 50%;  display: flex;flex-direction: column;">
+        <div><app-monthly-transaction [transactions]="transactions" /></div>
+        <div style="margin-top: auto;">
+        <app-pagination
+          [currentPage]="currentPage"
+          [totalPages]="totalPages"
+          style="width: 100%"
+          (onNextPage)="handleNextPage($event)"
+        />
+      </div>
+      </div>
     </div>
   </div>
-
+  <!--footer button-->
   <div
     style="
       display: flex;
       justify-content: flex-end;
-      width: 90%;
+      width: 95%;
       margin-top: 2rem;
       margin-bottom: 4rem;
     "
@@ -73,8 +84,14 @@
         height: 100%;
         z-index: 100;
       "
+      
     >
-      <app-transaction-form  (onCloseForm)="createCharts(transactions)" (onCloseForm)="toggleForm()" [currentUserId]="currentUserId" [transactions]="transactions"/>
+      <app-transaction-form
+      (onAddTransaction)="handleAddTransaction()"
+        (onCloseForm)="toggleForm()"
+        [currentUserId]="currentUserId"
+        [transactions]="transactions"
+      />
     </div>
   </div>
 </div>

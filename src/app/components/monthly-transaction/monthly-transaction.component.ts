@@ -1,5 +1,5 @@
 import { Component, Injectable,Input } from '@angular/core';
-import { TransactionService,IGET_Transaction } from '../../services/transaction.service';
+import { TransactionService,ITransaction } from '../../services/transaction.service';
 interface transactionData {
   name: string;
   amount: number;
@@ -12,7 +12,7 @@ interface transactionData {
 
 
 export class MonthlyTransactionComponent {
-  @Input() public transactions: IGET_Transaction[];
+  @Input() public transactions: ITransaction[];
  
 
   public transactionPieChart: any[];

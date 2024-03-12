@@ -17,21 +17,6 @@ export class MonthSelectionComponent {
     this.onNextDate.emit(payload);
   }
 
-  // handleNextMonth(date: Date, isNext:boolean)  {
-  //   const currentDate = new Date(date);
-  //   let month: number;
-  //   isNext
-  //     ? (month = currentDate.getMonth() + 1)
-  //     : (month = currentDate.getMonth() - 1);
-  //   let year = currentDate.getFullYear();
-  //   if (month < 0) {
-  //     month = 11;
-  //     isNext
-  //       ? (year = currentDate.getFullYear() + 1)
-  //       : (year = currentDate.getFullYear() - 1);
-  //   }
-  //   this.date = (new Date(year, month));
-    
-  // };
+  
  
 }

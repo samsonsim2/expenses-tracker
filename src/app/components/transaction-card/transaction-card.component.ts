@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IGET_Transaction } from '../../services/transaction.service';
+import { ITransaction } from '../../services/transaction.service';
 import { formatDate } from '../../utils/utils';
  
 @Component({
@@ -8,7 +8,7 @@ import { formatDate } from '../../utils/utils';
   styleUrl: './transaction-card.component.css'
 })
 export class TransactionCardComponent {
-  @Input() transaction: IGET_Transaction;
+  @Input() transaction: ITransaction;
   
   isExpense:boolean = true;
 

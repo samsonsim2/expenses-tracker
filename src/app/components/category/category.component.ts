@@ -1,10 +1,7 @@
-import { Component, Input } from '@angular/core';
-import { MatTabsModule } from '@angular/material/tabs';
-import { CognitoService, IUser } from '../../services/cognito.service';
-import { Router } from '@angular/router';
+import { Component, Input } from '@angular/core'; 
 import { CategoryService, ICategory } from '../../services/category.service';
 import { NgForm } from '@angular/forms';
-import { IGET_Transaction } from '../../services/transaction.service';
+ 
 interface Food {
   value: string;
   viewValue: string;

@@ -5,7 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
  
 
-export interface IGET_Transaction {
+export interface ITransaction {
   
   name: string;
   amount: number;
@@ -24,7 +24,7 @@ export interface IGET_Transaction {
 export class TransactionService {
   constructor(private _http: HttpClient) {}
 
-  createTransaction(transaction: IGET_Transaction): Observable<any> {
+  createTransaction(transaction: ITransaction ): Observable<any> {
     return this._http.post('https://localhost:5000/api/Transaction', transaction);
   }
 

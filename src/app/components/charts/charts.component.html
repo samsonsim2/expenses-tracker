@@ -15,14 +15,14 @@
       >
       </ngx-charts-pie-chart>
 
-      <h1 *ngIf="expensesPieChart.length == 0" >No data</h1>
+      <!-- <h1 *ngIf="expensesPieChart.length == null" >No data</h1> -->
     </div>
   </mat-tab>
   <mat-tab label="Income">
 
-    <div style=" width:80%;height: 500px;margin:auto;display: flex;justify-content: center;margin-top:30px">
+    <div   style=" width:80%;height: 500px;margin:auto;display: flex;justify-content: center;margin-top:30px">
        
-      <ngx-charts-pie-chart
+      <ngx-charts-pie-chart   
       style="overflow-y: hidden;overflow-x: hidden"
         [view]="[400, 400]"
         [results]="incomePieChart"
@@ -34,8 +34,8 @@
         
       >
       </ngx-charts-pie-chart>
-      
-      <h1 style= "text-align: center" *ngIf="incomePieChart.length == 0" >No data</h1>
+    
+       
      
     </div>
     <!-- <ngx-charts-pie-chart

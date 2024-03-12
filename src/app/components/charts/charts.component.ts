@@ -7,8 +7,8 @@ import { LegendPosition } from '@swimlane/ngx-charts';
   styleUrl: './charts.component.css'
 })
 export class ChartsComponent {
-@Input() expensesPieChart : any=[];
-@Input() incomePieChart : any;
+@Input() expensesPieChart : any=[]  ;
+@Input() incomePieChart : any=[];
  
  
  
@@ -24,6 +24,6 @@ export class ChartsComponent {
 
 
 ngOnInit(){
- console.log(this.expensesPieChart.length())
+  
 }
 }

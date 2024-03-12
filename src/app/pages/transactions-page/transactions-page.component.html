@@ -86,11 +86,14 @@
       "
       
     >
+    
       <app-transaction-form
-      (onAddTransaction)="handleAddTransaction()"
+      (onAddTransaction)="handleAddTransaction($event)"
         (onCloseForm)="toggleForm()"
         [currentUserId]="currentUserId"
         [transactions]="transactions"
+        [transactionsPieChart]="transactionsPieChart"
+        [transaction]="transaction"
       />
     </div>
   </div>

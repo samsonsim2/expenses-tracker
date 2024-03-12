@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CognitoService } from '../../services/cognito.service';
 import { UserService } from '../../services/user.service';
 import { CategoryService, ICategory } from '../../services/category.service';
-import { IGET_Transaction } from '../../services/transaction.service';
+ 
 @Component({
   selector: 'app-settings-page',
   templateUrl: './settings-page.component.html',
@@ -38,4 +38,7 @@ export class SettingsPageComponent {
      
     });
   }
+
+
+  
 }

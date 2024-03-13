@@ -212,4 +212,5 @@ export class TransactionsPageComponent {
       )
       .subscribe((res) => (this.totalPages = res));
   }
+  
 }

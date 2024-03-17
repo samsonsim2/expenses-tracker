@@ -2,29 +2,55 @@
   style="
     width: 100%;
     height: 100%;
-    background-color: blue;
+
     display: flex;
     justify-content: center;
     align-items: center;
   "
+  [ngStyle]="{
+    background: 'url(/assets/background.svg) no-repeat 0 0  ',
+    'background-size': 'cover'
+  }"
 >
-  <h1>
-    
-    <ngx-charts-bar-vertical-2d
-   
-  [results]="multi"
-  [gradient]="gradient"
-  [xAxis]="showXAxis"
-  [yAxis]="showYAxis"
-  [legend]="showLegend"
-  [showXAxisLabel]="showXAxisLabel"
-  [showYAxisLabel]="showYAxisLabel"
-  [xAxisLabel]="xAxisLabel"
-  [yAxisLabel]="yAxisLabel"
-  [legendTitle]="legendTitle"
-  (select)="onSelect($event)"
-  (activate)="onActivate($event)"
-  (deactivate)="onDeactivate($event)">
-</ngx-charts-bar-vertical-2d>
-  </h1>
+  <div style="flex-direction: column">
+    <div
+      style="display: flex; justify-content: center; padding:10px;margin-bottom: 50px;background-color: white;border-radius: 0.5rem;box-shadow: 2px 2px 2px lightgray"
+    >
+      <span>Welcome&nbsp;</span>
+      <span style="text-transform: capitalize; font-weight: bold"
+        >{{ firstName }}&nbsp;</span
+      >
+      <span style="text-transform: capitalize; font-weight: bold">{{
+        lastName
+      }}</span>
+
+      <span>, here are you montly transactions.</span>
+    </div>
+    <h1>
+      <app-bar-chart [barChart]="barChart" />
+    </h1>
+
+    <div
+      style="
+        margin: auto;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+      "
+    >
+      <button
+        style="background-color: transparent; border: 0; cursor: pointer"
+        (click)="clickNext(false)"
+      >
+        <mat-icon>keyboard_arrow_left</mat-icon>
+      </button>
+
+      <button
+        style="background-color: transparent; border: 0; cursor: pointer"
+        (click)="clickNext(true)"
+      >
+        <mat-icon>keyboard_arrow_right</mat-icon>
+      </button>
+    </div>
+  </div>
 </div>

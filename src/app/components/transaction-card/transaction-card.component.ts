@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input ,Output,EventEmitter} from '@angular/core';
 import { ITransaction } from '../../services/transaction.service';
 import { formatDate } from '../../utils/utils';
  
@@ -9,6 +9,7 @@ import { formatDate } from '../../utils/utils';
 })
 export class TransactionCardComponent {
   @Input() transaction: ITransaction;
+  @Output() onTransactionDelete = new EventEmitter();
   
   isExpense:boolean = true;
 
@@ -25,7 +26,11 @@ export class TransactionCardComponent {
     console.log(formatDate(this.transaction.date))
   } 
  
- 
+  onDelete(transactionId : number| undefined) {
+    console.log(transactionId)
+    let payload={transactionId}
+    this.onTransactionDelete.emit(payload);
+  }
 
   
 }

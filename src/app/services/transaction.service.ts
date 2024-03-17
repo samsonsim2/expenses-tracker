@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 export interface ITransaction {
+  id?: number,
   name: string;
   amount: number;
   date: string;
@@ -64,5 +65,12 @@ export class TransactionService {
       `https://localhost:5000/api/Transaction/monthlyIncomeSum?userId=${currentUserId}`
     );
     return monthlyExpenses;
+  }
+
+ deleteTransaction(transactionId: number): Observable<any>  {
+    return this._http.delete(
+      `https://localhost:5000/api/Transaction/${transactionId}`
+    );
+ 
   }
 }

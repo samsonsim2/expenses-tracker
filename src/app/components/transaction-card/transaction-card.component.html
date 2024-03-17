@@ -14,7 +14,13 @@
   </div>
 
   <div
-    style="display: flex; flex-grow: 1; justify-content: space-between;height: 100%;align-items: center;"
+    style="
+      display: flex;
+      flex-grow: 1;
+      justify-content: space-between;
+      height: 100%;
+      align-items: center;
+    "
   >
     <div style="display: flex; flex-direction: column; gap: 0">
       <p style="margin: 0; font-weight: bold">{{ transaction.name }}</p>
@@ -32,7 +38,41 @@
       </p></mat-chip
     >
 
-    <h5></h5>
-    <h5 [ngStyle]="isExpense?  {'color': 'red' } : {'color':'blue'}   " style="margin-right:1rem">{{isExpense? '-' : '+'}}{{ transaction.amount }}</h5>
+    <div
+      style="
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        color: darkgrey;
+        margin-right: 20px;
+      "
+    >
+      <h5
+        [ngStyle]="isExpense ? { color: 'red' } : { color: 'blue' }"
+        style="margin-right: 1rem"
+      >
+        {{ isExpense ? "-" : "+" }}{{ transaction.amount }}
+      </h5>
+
+      <button
+        
+        style="
+          cursor: pointer;
+          background-color: transparent;
+          border: none;
+          width: fit-content;
+          margin-top: 5px;
+          color: #5a5a5a;
+        "
+        (click)="onDelete(transaction.id)"
+      >
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Example home icon"
+          fontIcon="delete"
+        ></mat-icon>
+      </button>
+      
+    </div>
   </div>
 </mat-card>

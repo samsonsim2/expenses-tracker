@@ -48,12 +48,26 @@ export class TransactionsPageComponent {
   //pass down
   public transaction: ITransaction;
 
+
   constructor(
     private transactionService: TransactionService,
     private cognitoService: CognitoService,
     private userService: UserService,
     private categoryService: CategoryService
-  ) {}
+  ) {
+
+    this.transaction={
+      name: "",
+      amount: 1,
+      date: "",
+      userId: this.currentUserId,
+      categoryId: 1,
+      categoryName: "",
+      categoryColor: "",
+      categoryIncomeExpenseId: "",
+    };
+    
+  }
 
   public async ngOnInit() {
     //Get user
@@ -125,9 +139,24 @@ export class TransactionsPageComponent {
     });
   }
 
-  
+  public deleteTransaction(object: any) {
+    this.transactionService
+      .deleteTransaction(object.transactionId)
+      .subscribe((res) => {
+        let newList = this.transactions.filter((res) => {
+          return res.id != object.transactionId;
+        });
+
+        this.transactions = newList;
+        
+        this.getWholeMonthTransactions();
+        
+      });
+  }
+
   public resetTransaction() {
     this.transaction = {
+      id: 1,
       name: '',
       amount: 1,
       date: new Date().toISOString(),
@@ -212,5 +241,4 @@ export class TransactionsPageComponent {
       )
       .subscribe((res) => (this.totalPages = res));
   }
-  
 }

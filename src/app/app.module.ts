@@ -48,6 +48,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { MonthSelectionComponent } from './components/month-selection/month-selection.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { ChartsComponent } from './components/charts/charts.component';
+import { BarChartComponent } from './components/bar-chart/bar-chart.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,8 @@ import { ChartsComponent } from './components/charts/charts.component';
      TransactionsPageComponent,
      MonthSelectionComponent,
      PaginationComponent,
-     ChartsComponent
+     ChartsComponent,
+     BarChartComponent
   ],
   imports: [
     BrowserModule,

@@ -42,6 +42,7 @@ export class TransactionFormComponent {
 
   public resetTransaction() {
     this.transaction = {
+      id:1,
       name: '',
       amount: 1,
       date: new Date().toISOString(),

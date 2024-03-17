@@ -6,6 +6,7 @@
     <app-transaction-card
       *ngFor="let transaction of transactions"
       [transaction]="transaction"
+      (onTransactionDelete)="onTransactionDelete($event)"
     />
   </div>
   

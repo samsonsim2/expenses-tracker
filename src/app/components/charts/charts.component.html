@@ -1,10 +1,16 @@
 <mat-tab-group animationDuration="0ms">
   <mat-tab label="Expenses">
-    <div style=" width:80%;height: 500px;margin:auto;display: flex;justify-content: center;margin-top:30px">
-      
+     
+  
+   
+    <div   style=" width:80%;height: 500px;margin:auto;display: flex;justify-content: center;margin-top:30px">
+      <div style=" display:flex;align-self: center;" [ngStyle]="expensesLoading?{'display':'block'}:{'display':'none'}">
+        <h1 style="text-align: center;"> No Data Available</h1> </div>
       <ngx-charts-pie-chart
       style="overflow-y: hidden;overflow-x: hidden"
+      [ngStyle]="expensesLoading?{'display':'none'}:{'display':'block'}"
         [view]="[400, 400]"
+        [customColors]="expensesColor"
         [results]="expensesPieChart"
         [doughnut]="true"
         [legend]="true"
@@ -17,14 +23,21 @@
 
       <!-- <h1 *ngIf="expensesPieChart.length == null" >No data</h1> -->
     </div>
+   
   </mat-tab>
   <mat-tab label="Income">
-
+   
+ 
     <div   style=" width:80%;height: 500px;margin:auto;display: flex;justify-content: center;margin-top:30px">
        
+      <div style=" display:flex;align-self: center;" [ngStyle]="incomeLoading?{'display':'block'}:{'display':'none'}">
+        <h1>No Data Available</h1> </div>
       <ngx-charts-pie-chart   
+     
       style="overflow-y: hidden;overflow-x: hidden"
+      [ngStyle]="incomeLoading?{'display':'none'}:{'display':'block'}"
         [view]="[400, 400]"
+        [customColors]="incomeColor"
         [results]="incomePieChart"
         [doughnut]="true"
         [legend]="true"
@@ -38,12 +51,7 @@
        
      
     </div>
-    <!-- <ngx-charts-pie-chart
-      [results]="incomePieChart"
-      [doughnut]="true"
-      [legend]="true"
-    >
-    </ngx-charts-pie-chart> -->
+   
 
  
   </mat-tab>

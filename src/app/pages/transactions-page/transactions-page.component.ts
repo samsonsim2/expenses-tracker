@@ -14,7 +14,7 @@ import {
 import { UserService } from '../../services/user.service';
 import { CognitoService } from '../../services/cognito.service';
 import { map, switchMap } from 'rxjs';
-import { CategoryService } from '../../services/category.service';
+import { CategoryService, ICategory } from '../../services/category.service';
 interface transactionData {
   name: string;
   amount: number;
@@ -33,6 +33,7 @@ export class TransactionsPageComponent {
   currentPage: number = 1;
   totalPages: number = 1;
   pageSize: number = 10;
+  categories: ICategory[];
 
   //Response
 
@@ -46,27 +47,36 @@ export class TransactionsPageComponent {
   date: Date = new Date();
 
   //pass down
-  public transaction: ITransaction;
-
-
+  public expensesColor : any=[]
+  public incomeColor : any=[]
+  public transaction = {
+    name: '',
+    amount: 0,
+    date: '',
+    userId: this.currentUserId,
+    categoryId: 0,
+    categoryName: '',
+    categoryColor: '',
+    categoryIncomeExpenseId: '',
+  };
+  public incomeLoading: boolean = true
+  public expensesLoading: boolean = true
   constructor(
     private transactionService: TransactionService,
     private cognitoService: CognitoService,
     private userService: UserService,
     private categoryService: CategoryService
   ) {
-
-    this.transaction={
-      name: "",
+    this.transaction = {
+      name: '',
       amount: 1,
-      date: "",
+      date: '',
       userId: this.currentUserId,
       categoryId: 1,
-      categoryName: "",
-      categoryColor: "",
-      categoryIncomeExpenseId: "",
+      categoryName: '',
+      categoryColor: '',
+      categoryIncomeExpenseId: '',
     };
-    
   }
 
   public async ngOnInit() {
@@ -76,7 +86,13 @@ export class TransactionsPageComponent {
       this.currentUserId = res.id; //set current user
       this.getTransactionsByPage(); //for list
       this.getWholeMonthTransactions(); //for pie chart
+      this.getUserCategories(this.currentUserId)// for categories list in transaction form 
+ 
+     
+
     });
+
+   
   }
 
   handleNextPage(object: any) {
@@ -95,7 +111,18 @@ export class TransactionsPageComponent {
     }
     this.getTransactionsByPage();
   }
+  getUserCategories(currentUserId:number)
+  {
+    this.categoryService.getCategoriesByUserId(1).subscribe((res): void => {
+      let newList = [...res]        
+      this.categoryService.getCategoriesByUserId(2).subscribe((res) => {
+        newList.push(...res);
+        this.categories=newList;
+      });
+    });
 
+
+  }
   handleNextMonth(object: any) {
     const date = object.date;
     const isNext = object.isNext;
@@ -115,6 +142,7 @@ export class TransactionsPageComponent {
     this.date = new Date(year, month);
     this.getTransactionsByPage();
     this.getWholeMonthTransactions();
+
   }
 
   public toggleForm(): void {
@@ -148,15 +176,13 @@ export class TransactionsPageComponent {
         });
 
         this.transactions = newList;
-        
+
         this.getWholeMonthTransactions();
-        
       });
   }
 
   public resetTransaction() {
     this.transaction = {
-      id: 1,
       name: '',
       amount: 1,
       date: new Date().toISOString(),
@@ -185,28 +211,44 @@ export class TransactionsPageComponent {
       });
   }
 
-  public getWholeMonthTransactions() {
-    console.log('getting whole month transactions');
-    this.transactionService
-      .getTransactions(
-        this.currentUserId,
-        this.date.getMonth() + 1,
-        this.date.getFullYear(),
-        10000, //use a high page size to fetch all data
-        this.currentPage
-      )
-      .subscribe((res) => {
-        this.transactionsPieChart = res;
-        this.createCharts(this.transactionsPieChart);
-      });
+  public   getWholeMonthTransactions() {
+ 
+      console.log('getting whole month transactions');
+      this.transactionService
+        .getTransactions(
+          this.currentUserId,
+          this.date.getMonth() + 1,
+          this.date.getFullYear(),
+          10000, //use a high page size to fetch all data
+          this.currentPage
+        )
+        .subscribe((res) => {
+          this.formatColor(res)
+          this.transactionsPieChart = res;
+          this.createCharts(this.transactionsPieChart);})
+ 
+  
   }
 
   //sends data to chart
   public createCharts(transactions: ITransaction[]) {
     //Create Expenses Pie Chart
     this.expensesPieChart = this.formatData(transactions, 1);
+    if(this.expensesPieChart.length > 0){
+      this.expensesLoading = false
+    }else{
+      this.expensesLoading  = true
+    }
+    console.log(this.expensesPieChart)
     //Create Income Pie Chart
     this.incomePieChart = this.formatData(transactions, 2);
+
+    if(this.incomePieChart.length > 0){
+      this.incomeLoading = false
+    }else{
+      this.incomeLoading  = true
+    }
+    console.log(this.incomePieChart)
   }
 
   public formatData(transactions: transactionData[], incomeExpenseId: number) {
@@ -228,6 +270,29 @@ export class TransactionsPageComponent {
       }, []);
 
     return formattedData;
+  }
+
+  public formatColor(transactions: ITransaction[]) {
+    
+    const formattedExpensesColor = transactions
+    .filter((t: any) => t.categoryIncomeExpenseId == 1)
+    .map((t: any) => {
+      return { name: t.categoryName, value: t.categoryColor };
+    })
+
+    const formattedIncomeColor = transactions
+    .filter((t: any) => t.categoryIncomeExpenseId == 2)
+    .map((t: any) => {
+      return { name: t.categoryName, value: t.categoryColor };
+    })
+
+    this.expensesColor = formattedExpensesColor
+    this.incomeColor= formattedIncomeColor
+    console.log(this.expensesColor)
+
+ 
+   
+     
   }
 
   //counts total pages of transactions per month

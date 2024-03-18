@@ -39,14 +39,35 @@
     </mat-form-field>
 
     <p style="margin-bottom: 0; margin-top: 0">Category</p>
-    <mat-form-field class="example-full-width">
+
+    <mat-form-field>
+      <mat-select [(ngModel)]="transaction.categoryId "  name="category"
+        type="string">
+
+        <mat-option  *ngFor="let category of categories" value={{category.id}} >{{category.name}}</mat-option>
+        
+       
+      </mat-select>
+    </mat-form-field>
+<!-- <h1>{{categories}}</h1> -->
+<!-- 
+
+    <app-category-card
+   
+    [category]="category"
+    (onDeleteCategory)="deleteCategory(category)"
+  ></app-category-card> -->
+
+
+
+    <!-- <mat-form-field class="example-full-width">
       <input
         matInput
         [(ngModel)]="transaction.categoryId"
         name="category"
         type="string"
       />
-    </mat-form-field>
+    </mat-form-field> -->
 
     <p style="margin-bottom: 0; margin-top: 0">Amount</p>
     <mat-form-field class="example-full-width">

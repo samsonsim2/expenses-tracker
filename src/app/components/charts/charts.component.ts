@@ -9,9 +9,10 @@ import { LegendPosition } from '@swimlane/ngx-charts';
 export class ChartsComponent {
 @Input() expensesPieChart : any=[]  ;
 @Input() incomePieChart : any=[];
- 
- 
- 
+@Input() expensesColor : any=[];
+@Input() incomeColor : any=[];
+@Input() incomeLoading:boolean
+@Input() expensesLoading:boolean
   single: any[];
   view: any[] = [700, 400];
 
@@ -24,6 +25,6 @@ export class ChartsComponent {
 
 
 ngOnInit(){
-  
+   
 }
 }

@@ -5,6 +5,9 @@ import {
 } from '../../services/transaction.service';
 import { NgForm } from '@angular/forms';
 import { CategoryService, ICategory } from '../../services/category.service';
+import { CognitoService } from '../../services/cognito.service';
+import { UserService } from '../../services/user.service';
+
 @Component({
   selector: 'app-transaction-form',
   templateUrl: './transaction-form.component.html',
@@ -15,12 +18,16 @@ export class TransactionFormComponent {
   @Input() transactions: ITransaction[] = [];
   @Input() transaction: ITransaction;
   @Input() transactionsPieChart: ITransaction[];
-
+ @Input() categories: ICategory[];
   @Output() onCloseForm = new EventEmitter();
   @Output() onAddTransaction = new EventEmitter();
 
-  ngOnInit() {
+ 
+  async ngOnInit() {
     this.resetTransaction();
+    console.log(this.categories)
+
+  
   }
   closeForm() {
     this.onCloseForm.emit();
@@ -28,21 +35,20 @@ export class TransactionFormComponent {
 
   constructor(
     private transactionService: TransactionService,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private userService: UserService,
+    private cognitoService: CognitoService
   ) {}
 
   public createTransaction(form: NgForm) {
-    const payload = this.transaction
-    this.onAddTransaction.emit(payload)
-
-  
+    const payload = this.transaction;
+    this.onAddTransaction.emit(payload);
   }
 
   public getCategoryColor() {}
 
   public resetTransaction() {
     this.transaction = {
-      id:1,
       name: '',
       amount: 1,
       date: new Date().toISOString(),

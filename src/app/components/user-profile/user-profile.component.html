@@ -1,24 +1,24 @@
 <h1>Edit profile</h1>
 <div style="display: flex; flex-direction: row">
-
+  <h1></h1>
   <form
     class="example-form"
     href="https://www.pexels.com/photo/woman-jumping-wearing-green-backpack-214574/"
     style=" flex-grow: 1"
   >
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="email" name="email" type="email"  />
+      <input matInput placeholder="email" name="email" type="email"  [(ngModel)]= currentUser.email  value={{currentUser.email}} > 
     </mat-form-field>
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="first name" name="password" type="text" />
+      <input matInput placeholder="first name" name="firstName" type="text"  [(ngModel)]= currentUser.firstName value={{currentUser.firstName}} />
     </mat-form-field>
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="last name" name="password" type="text" />
+      <input matInput placeholder="last name" name="lastName" type="text" [(ngModel)]= currentUser.lastName  value={{currentUser.lastName}}  />
     </mat-form-field>
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="currency" name="currency" type="text" />
+      <input matInput placeholder="currency" name="currency" type="text" [(ngModel)]= currentUser.mainCurrency value={{currentUser.mainCurrency}} />
     </mat-form-field>
-    <button color="primary" style="width: 100%" mat-raised-button>
+    <button color="primary" style="width: 100%" mat-raised-button (click)="updateUser(currentUserId,currentUser)">
       Update
     </button>
   </form>

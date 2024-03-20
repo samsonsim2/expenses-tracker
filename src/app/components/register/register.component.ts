@@ -17,6 +17,7 @@ export class RegisterComponent {
   }
 
   public signUp() {
+    console.log(this.user)
     this.cognitoService
       .signUp(this.user)
       .then(() => {
@@ -29,6 +30,7 @@ export class RegisterComponent {
   }
 
   public confirmSignUp() {
+    console.log(this.user.code)
     this.cognitoService
       .confirmSignUp(this.user)
       .then(() => {

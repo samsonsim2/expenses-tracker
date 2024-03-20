@@ -6,6 +6,7 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 
 
 export interface IUserDTO {
+  
   AmazonUsername : string;
   Email: string;  
   FirstName: string;
@@ -40,6 +41,12 @@ export class UserService {
   findOrCreateUser(userDTO: IUserDTO):Observable<any>{
     return  this._http.post("http://167.71.199.57:5000/api/User",userDTO )
   }
+
+  updateUser(userId: number,userDTO: any):Observable<any>{
+    const users =this._http.put(`https://localhost:5000/api/User?userId=${userId}`,userDTO)
+    return (users);
+  }
+
      
 
 }

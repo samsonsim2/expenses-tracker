@@ -1,3 +1,18 @@
-<div style=" width:100%;height:100%;background-color:yellow;display: flex;justify-content: center;align-items: center;"> 
-    <h1>landing</h1>
-    </div>
+<div
+  style="
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  "
+  [ngStyle]="{
+    background: 'url(/assets/background.svg) no-repeat 0 0  ',
+    'background-size': 'cover'
+  }"
+>
+  <div style=" display: flex ; flex-direction:column;align-items: center;">
+    <h1 style=" font-size: 10rem; font-weight: 500 ; margin: 0;">Expenses Tracker</h1>
+    <p style="color:dark-grey;font-weight:100; font-size:2rem">Your personal finance tracker</p>
+  </div> 
+</div>

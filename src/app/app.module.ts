@@ -49,6 +49,7 @@ import { MonthSelectionComponent } from './components/month-selection/month-sele
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { ChartsComponent } from './components/charts/charts.component';
 import { BarChartComponent } from './components/bar-chart/bar-chart.component';
+import { RegisterPageComponent } from './pages/register-page/register-page.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +76,8 @@ import { BarChartComponent } from './components/bar-chart/bar-chart.component';
      MonthSelectionComponent,
      PaginationComponent,
      ChartsComponent,
-     BarChartComponent
+     BarChartComponent,
+     RegisterPageComponent
   ],
   imports: [
     BrowserModule,

@@ -115,7 +115,7 @@ export class TransactionsPageComponent {
   {
     this.categoryService.getCategoriesByUserId(1).subscribe((res): void => {
       let newList = [...res]        
-      this.categoryService.getCategoriesByUserId(2).subscribe((res) => {
+      this.categoryService.getCategoriesByUserId(this.currentUserId).subscribe((res) => {
         newList.push(...res);
         this.categories=newList;
       });

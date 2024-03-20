@@ -23,7 +23,7 @@
       padding-bottom: 4rem;
     "
   >
-    <app-user-profile />
+    <app-user-profile [currentUser]="currentUser" [currentUserId]="currentUserId"/>
     <app-category [currentUserId]="currentUserId" [categories]="categories"/>
     
   </div>

@@ -34,6 +34,7 @@ export class CategoryComponent {
   constructor(private categoryService: CategoryService) {}
 
   public createCategory(form: NgForm) {
+    console.log(`hihi ${this.currentUserId}`)
     this.categoryService
       .createCategory(this.category, this.currentUserId)
       .subscribe((res) => {});

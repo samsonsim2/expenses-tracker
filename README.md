@@ -5,9 +5,9 @@ Simple CRUD app to track expenses
 https://github.com/samsonsim2/expenses-tracker/assets/106437135/33e10ee4-14ae-4fb7-a1b3-86da8dfa7f7e
 
 ## Tech Stack
-Frontend: Angular styled with Angular Material UI, Charts were created with NGX-Charts library
-Backend: .Net 
-Authentication: AWS Cognito 
+#### Frontend: Angular styled with Angular Material UI, Charts were created with NGX-Charts library
+#### Backend: .Net 
+####  Authentication: AWS Cognito 
 
 ## Features 
 

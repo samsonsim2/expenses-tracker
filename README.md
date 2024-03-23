@@ -30,6 +30,6 @@ User is given 10 default categories by default that cant be deleted
 ![Screenshot 2024-03-23 152643](https://github.com/samsonsim2/expenses-tracker/assets/106437135/a0983dbc-e012-491c-a216-45c4a03ac2bd)
 ![Screenshot 2024-03-23 152719](https://github.com/samsonsim2/expenses-tracker/assets/106437135/e3745901-ede8-4c99-8f5b-1eac7468d4a3)
 
-### Create and delete transaction 
+### Create and delete transactions
 
 ![Screenshot 2024-03-23 152836](https://github.com/samsonsim2/expenses-tracker/assets/106437135/ed28ca64-eb82-4192-ab3d-cf02b63eb248)

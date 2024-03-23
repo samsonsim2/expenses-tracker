@@ -8,6 +8,7 @@ https://github.com/samsonsim2/expenses-tracker/assets/106437135/33e10ee4-14ae-4f
 #### Frontend: Angular styled with Angular Material UI, Charts were created with NGX-Charts library
 #### Backend: .Net 
 ####  Authentication: AWS Cognito 
+#### Deployment: Digital Ocean, ECR, Docker, Jenkins 
 
 ## Features 
 

@@ -1,28 +1,35 @@
-# Expense
+# Expenses-Tracker
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.8.
+Simple CRUD app to track expenses 
 
-## Development server
+https://github.com/samsonsim2/expenses-tracker/assets/106437135/33e10ee4-14ae-4fb7-a1b3-86da8dfa7f7e
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Tech Stack
+Frontend: Angular styled with Angular Material UI, Charts were created with NGX-Charts library
+Backend: .Net 
+Authentication: AWS Cognito 
 
-## Code scaffolding
+## Features 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Login/Register user using AWS Cognito 
+![Screenshot 2024-03-23 151941](https://github.com/samsonsim2/expenses-tracker/assets/106437135/6236bb75-a1f2-4129-86f2-1b1b4ab5592c)
 
-## Build
+### Retrieve current + past 3 months transaction data
+![Screenshot 2024-03-23 152025](https://github.com/samsonsim2/expenses-tracker/assets/106437135/84130bb0-5f56-4248-a08d-efd8d1b9f08f)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Retrieve/Update user info 
+![image](https://github.com/samsonsim2/expenses-tracker/assets/106437135/4e01038e-41b2-4699-88c4-9ff42e973626)
 
-## Running unit tests
+### Create category 
+![Screenshot 2024-03-23 152438](https://github.com/samsonsim2/expenses-tracker/assets/106437135/a038172e-6d59-4d2f-8ed5-2706cec84713)
+![Screenshot 2024-03-23 152543](https://github.com/samsonsim2/expenses-tracker/assets/106437135/6f60abfa-093d-44ae-aedf-824deb28fb33)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+User is given 10 default categories by default that cant be deleted 
 
-## Running end-to-end tests
+### View monthly transaction break down 
+![Screenshot 2024-03-23 152643](https://github.com/samsonsim2/expenses-tracker/assets/106437135/a0983dbc-e012-491c-a216-45c4a03ac2bd)
+![Screenshot 2024-03-23 152719](https://github.com/samsonsim2/expenses-tracker/assets/106437135/e3745901-ede8-4c99-8f5b-1eac7468d4a3)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Create and delete transaction 
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-# expenses-tracker
+![Screenshot 2024-03-23 152836](https://github.com/samsonsim2/expenses-tracker/assets/106437135/ed28ca64-eb82-4192-ab3d-cf02b63eb248)
